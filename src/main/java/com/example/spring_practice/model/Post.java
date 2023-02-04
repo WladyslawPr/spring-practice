@@ -1,6 +1,8 @@
 package com.example.spring_practice.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,11 +11,11 @@ import java.util.List;
 public class Post {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String content;
     private LocalDateTime created;
-
     public long getId() {
         return id;
     }
