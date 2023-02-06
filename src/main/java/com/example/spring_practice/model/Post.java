@@ -1,9 +1,6 @@
 package com.example.spring_practice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,6 +13,10 @@ public class Post {
     private String title;
     private String content;
     private LocalDateTime created;
+
+    @OneToMany(cascade = {CascadeType.REMOVE})
+    @JoinColumn(name = "postId", updatable = false, insertable = false)
+    private List<Comment> comment;
     public long getId() {
         return id;
     }
@@ -46,5 +47,13 @@ public class Post {
 
     public void setCreated (LocalDateTime created) {
         this.created = created;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 }
