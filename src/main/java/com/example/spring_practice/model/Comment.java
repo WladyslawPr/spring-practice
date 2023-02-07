@@ -47,4 +47,5 @@ public class Comment {
     public void setCreated(LocalDateTime created) {
         this.created = created;
     }
+
 }
