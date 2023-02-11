@@ -5,6 +5,7 @@ import com.example.spring_practice.mapper.PostDTOMapper;
 import com.example.spring_practice.model.Post;
 import com.example.spring_practice.service.PostService;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public List<PostDTO> getPosts(@RequestParam(required = false) Integer page, Sort.Direction sort) {
+    public List<PostDTO> getPosts(@RequestParam(required = false) Integer page, Sort.Direction sort,
+                                  @AuthenticationPrincipal String user) {
         int pageNumber = page != null && page >= 0 ? page : 0;
         Sort.Direction sortDirection = sort != null ? sort : Sort.Direction.ASC;
         return PostDTOMapper.mapToPostDTOs(postService.getPosts(pageNumber, sortDirection));
