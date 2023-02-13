@@ -1,5 +1,6 @@
 package com.example.spring_practice.config;
 
+import org.springframework.cache.annotation.EnableCaching;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiKey;
 import springfox.documentation.service.AuthorizationScope;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @EnableSwagger2
 @org.springframework.context.annotation.Configuration
+@EnableCaching
 public class Configuration {
 
     public Docket swaggerApi() {
