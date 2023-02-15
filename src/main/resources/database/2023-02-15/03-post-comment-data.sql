@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset vlpr:1
 INSERT INTO post (id, title, content) values (1, 'Test post 1', 'Content 1');
 INSERT INTO post (id, title, content) values (2, 'Test post 2', 'Content 2');
 INSERT INTO post (id, title, content) values (3, 'Test post 3', 'Content 3');
